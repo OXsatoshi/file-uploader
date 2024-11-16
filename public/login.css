@@ -1,0 +1,46 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+:root {
+}
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 0.5fr 5fr;
+}
+header {
+  grid-row: 1/2;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+header .menu {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 50%;
+}
+form input {
+  height: 2rem;
+}
+form button {
+  padding: 0 1 em 0 1em;
+}
+p.error {
+  color: red;
+}

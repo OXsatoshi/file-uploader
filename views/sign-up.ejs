@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <title>file uploader</title>
+  </head>
+  <body>
+    <header>
+      <div class="hero-logo">
+        <h1>File uploader</h1>
+      </div>
+      <div class="menu">
+        <div class="login">Login</div>
+        <div class="sign-in">Sign In</div>
+      </div>
+    </header>
+    <main>
+      <form method="post" action="./sign-up">
+        <h2>Sign Up</h2>
+        <p>already have an account? <a href="#">login</a></p>
+        <label for="name">*User Name</label>
+        <% if (locals.errors ) { %> <% const nameError = errors.find(error =>
+        error.path === 'name') %> <% if (nameError) { %>
+        <p class="error"><%= nameError.msg %></p>
+        <% } %> <% } %>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          placeholder="nabil225"
+          required
+        />
+        <label for="password">*Password</label>
+        <% if (locals.errors ) { %> <% const nameError = errors.find(error =>
+        error.path === 'password') %> <% if (nameError) { %>
+        <p class="error"><%= nameError.msg %></p>
+        <% } %> <% } %>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          placeholder="123444"
+          required
+        />
+        <label for="confirm-password">*Confirm Password </label>
+        <input
+          id="confirm-password"
+          type="password"
+          name="confirm-password"
+          placeholder="123444"
+          required
+        />
+        <button type="submit">Creaet Account</button>
+      </form>
+    </main>
+  </body>
+</html>

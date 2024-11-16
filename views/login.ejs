@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <title>file uploader</title>
+  </head>
+  <body>
+    <header>
+      <div class="hero-logo">
+        <h1>File uploader</h1>
+      </div>
+      <div class="menu">
+        <div class="login">Login</div>
+        <div class="sign-in">Sign In</div>
+      </div>
+    </header>
+    <main>
+      <form method="post" action="/login">
+        <h3>Login</h3>
+        <p>Dont have an account yet?<a href="/sign-up">Sign Up</a></p>
+        <label for="name">User Name</label>
+        <input id="name" type="text" name="name" />
+        <label for="password">Password </label>
+        <input id="password" type="password" name="password" />
+        <button type="submit">Login</button>
+      </form>
+    </main>
+  </body>
+</html>
