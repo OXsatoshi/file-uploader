@@ -3,10 +3,103 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="home.css" />
+    <title>File Uploader</title>
   </head>
   <body>
-    <h1>welcome back <%= user.name %></h1>
-    <p>domething</p>
+    <header>
+      <div class="hero"><h1>File Uploader</h1></div>
+      <div class="log-out">
+        <a href="/logout">Logout</a>
+      </div>
+    </header>
+    <main>
+      <sidebar>
+        <a>
+          <div class="new-folder">
+            <i class="fa-solid fa-folder-plus"></i><span>New folder</span>
+          </div>
+        </a>
+        <a>
+          <div class="uploadFile">
+            <i class="fa-regular fa-file"></i><span>New File</span>
+          </div>
+        </a>
+        <a>
+          <div class="show-book-list">
+            <i class="fa-solid fa-angle-down"></i>
+            <span><%= locals.user.name %></span>
+          </div>
+        </a>
+        <div class="book-list">
+          <% if (folders) { %> <% folders.forEach((e) => { %>
+          <a href="/folder/<%= e.id %>">
+            <span><%= e.name %></span>
+          </a>
+          <% }) %> <% } %>
+        </div>
+      </sidebar>
+      <div class="main-content">
+        <div
+          id="customModal"
+          style="
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+              -10px -10px 20px rgba(255, 255, 255, 0.5);
+          "
+        >
+          <form
+            method="post"
+            action="upload/uploadFile"
+            enctype="multipart/form-data"
+          >
+            <input type="file" id="file" name="file" />
+            <button type="submit">Upload</button>
+          </form>
+        </div>
+        <div
+          id="new-folder"
+          style="
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+              -10px -10px 20px rgba(255, 255, 255, 0.5);
+          "
+        >
+          <form method="post" action="folder/NewFolder">
+            <h3>New Folder</h3>
+            <label for="newFolder">Name</label>
+            <input type="text" id="newFolder" name="newFolder" />
+            <button type="submit">Create</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script>
+      document.querySelector(".uploadFile").addEventListener("click", (e) => {
+        document.getElementById("customModal").style.display = "block";
+      });
+      document.querySelector(".new-folder").addEventListener("click", (e) => {
+        document.getElementById("new-folder").style.display = "block";
+      });
+    </script>
   </body>
 </html>

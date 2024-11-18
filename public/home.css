@@ -1,0 +1,52 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 0.5fr 5fr;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+main {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+sidebar {
+  padding-top: 10px;
+  grid-column: 1/2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+sidebar a div {
+  display: flex;
+  gap: 10px;
+}
+sidebar a div:hover {
+  cursor: pointer;
+}
+#customModal > form {
+  display: flex;
+  flex-direction: column;
+}
+#customModal > form button {
+  align-self: flex-end;
+  padding: 0.5em;
+}
+#new-folder form {
+  display: flex;
+  flex-direction: column;
+}
+#new-folder form button {
+  align-self: flex-end;
+  padding: 0.5em;
+}
